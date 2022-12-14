@@ -96,7 +96,7 @@ let candyCount = 0;
 const candyList = ["Chocolate Bar", "Lollipop", "Hershey Kiss", "Nerd's Rope", "Reese's Pieces"];
 const candyOrderedList = document.createElement("ol");
 candyShop.appendChild(candyOrderedList);
-while (candyCount < 5){
+while (candyCount < candyList.length){
     const newCandy = document.createElement("li");
     newCandy.textContent = candyList[candyCount];
     candyOrderedList.appendChild(newCandy);
