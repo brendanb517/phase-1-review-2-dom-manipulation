@@ -3,39 +3,29 @@
  * Step 2 - Use .querySelector() to search for the element with the id of 'pet-list' and assign it as the value of the "petList" variable.
  */
 
-/*
- * Your code goes here
- */
+const petList = document.querySelector("#pet-list");
 
 /* Deliverable # 2: .createElement()
  * Step 1 - Declare a variable called "newPet".
  * Step 2 - Use .createElement() to create a new li element and assign it as the value of the "newPet" variable.
  */
 
-/*
- * Your code goes here
- */
+const newPet = document.createElement("li");
 
 // Deliverable # 3: .textContent - Change the textContent of "newPet" to any pet of your choosing (for example: "Guinea Pig")
 
-/*
- * Your code goes here
- */
+newPet.textContent = "Rottweiler";
 
 // Deliverable # 4: .appendChild() - Use .appendChild() to append "newPet" (the new li element you created) to "petList" (the ol containing all of the pets).
 
-/*
- * Your code goes here
- */
+petList.appendChild(newPet);
 
 /* Deliverable # 5: .querySelectorAll()
  * Step 1 - Declare a variable called "divs".
  * Step 2 - Use .querySelectorAll() to search for all div elements and assign it as the value of the "divs" variable.
  */
 
-/*
- * Your code goes here
- */
+const divs = document.querySelectorAll("div");
 
 /* Deliverable # 6: .forEach()
  * Step 1 - Use .forEach() to iterate through each of the div elements contained inside of the "divs" variable.
@@ -46,35 +36,34 @@
  * Step 6 - On the next line, inside of the function body of the callback function, use .appendChild() to append "copyrightElement" (the new h2 element you created) to "div" (the argument of the callback function representing each div element contained within the "divs" variable).
  */
 
-/*
- * Your code goes here
- */
+function smartBusinessDecision(){
+    divs.forEach(callbackArgument);
+    function callbackArgument(div){
+        const copyrightElement = document.createElement("h2");
+        copyrightElement.textContent = "© 2022 BRENDAN-BAIRD";
+        div.appendChild(copyrightElement);
+    }
+}
 
 /* Deliverable # 7: .getElementById()
  * Step 1 - Declare a variable called "notAShop".
  * Step 2 - Use .getElementById() to search for the element with the id of 'not-a-shop' and assign it as the value of the "notAShop" variable.
  */
 
-/*
- * Your code goes here
- */
+const notAShop = document.getElementById("not-a-shop");
 
 /* Deliverable # 8: .remove()
  * Step 1 - Use .remove() to remove the element with the id of 'not-a-shop' from the DOM. You already have a variable named "notAShop" that references this element.
  */
 
-/*
- * Your code goes here
- */
+notAShop.remove();
 
 /* Deliverable # 9: .getElementsByClassName()
  * Step 1 - Declare a variable called "shops".
  * Step 2 - Use .getElementsByClassName() to search for all elements with the class of "shop" and assign it as the value of the "shops" variable.
  */
 
-/*
- * Your code goes here
- */
+const shops = document.getElementsByClassName("shop");
 
 /* Deliverable # 10: while loop
  * Step 1 - Declare a variable called "counter" using let and initialize "counter" with a value of 0.
@@ -86,12 +75,32 @@
  * Step 6 - Don't forget to increment the value of the "counter" on the last line inside of the while loop!
  */
 
-/*
- * Your code goes here
- */
+function makeButtons(){
+    let counter = 0;
+    while (counter < shops.length){
+        const button = document.createElement("button");
+        button.textContent = "Like This Shop";
+        shops[counter].appendChild(button);
+        counter++;
+    }
+}
 
 // Bonus Deliverable: Finish creating the Candy Shop! There is already a div with the id of "candy-shop" currently set up for you.
 
-/*
- * Your code goes here
- */
+const candyShop = document.getElementById("candy-shop");
+const candyShopTitle = document.createElement("h1");
+candyShopTitle.textContent = "Candy Shop";
+candyShop.appendChild(candyShopTitle);
+
+let candyCount = 0;
+const candyList = ["Chocolate Bar", "Lollipop", "Hershey Kiss", "Nerd's Rope", "Reese's Pieces"];
+const candyOrderedList = document.createElement("ol");
+candyShop.appendChild(candyOrderedList);
+while (candyCount < 5){
+    const newCandy = document.createElement("li");
+    newCandy.textContent = candyList[candyCount];
+    candyOrderedList.appendChild(newCandy);
+    candyCount++;
+}
+makeButtons();
+smartBusinessDecision();
